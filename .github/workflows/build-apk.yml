@@ -1,0 +1,71 @@
+name: Build Dableh-FOTO APK
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Set up Gradle 9.3.1
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.3.1'
+
+      - name: Prepare debug keystore
+        run: |
+          if [ -f debug.keystore.base64 ]; then
+            base64 -d debug.keystore.base64 > debug.keystore
+          elif [ ! -f debug.keystore ]; then
+            keytool -genkeypair -v \
+              -keystore debug.keystore \
+              -storepass android \
+              -alias androiddebugkey \
+              -keypass android \
+              -keyalg RSA \
+              -keysize 2048 \
+              -validity 10000 \
+              -dname "CN=Android Debug,O=Android,C=US"
+          fi
+
+      - name: Build Dableh-FOTO Debug APK
+        run: gradle :app:assembleDebug --no-daemon
+
+      - name: Rename APK to Dableh-FOTO.apk
+        run: cp app/build/outputs/apk/debug/app-debug.apk Dableh-FOTO.apk
+
+      - name: Upload Dableh-FOTO.apk artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Dableh-FOTO-APK
+          path: Dableh-FOTO.apk
+          retention-days: 30
+
+      - name: Publish direct APK download in GitHub Release
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete latest --yes --cleanup-tag || true
+          gh release create latest Dableh-FOTO.apk \
+            --target "${{ github.sha }}" \
+            --title "Dableh-FOTO APK" \
+            --notes "Unduh langsung file Dableh-FOTO.apk di bawah ini untuk dipasang di HP Android."

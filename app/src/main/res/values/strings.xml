@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Dableh-FOTO</string>
+    <string name="tagline_studio">Editor Foto Offline • Simpan Otomatis</string>
+    <string name="pick_photo">Pilih Foto dari Perangkat</string>
+    <string name="sample_photos_title">Coba Cepat dengan Foto Contoh</string>
+    <string name="saved_internal_title">Tersimpan di Memori Internal</string>
+    <string name="empty_saved_title">Belum Ada Hasil Edit</string>
+    <string name="empty_saved_desc">Pilih foto dari perangkat atau coba foto contoh di atas. Setiap editan otomatis tersimpan dalam kualitas tinggi.</string>
+    <string name="offline_mode_label">Mode Offline</string>
+    <string name="offline_active_badge">Mode Offline Aktif • Data Lokal</string>
+    <string name="offline_auto_badge">Tanpa Internet • Mode Offline Otomatis</string>
+    <string name="online_ready_badge">Terhubung • Pemrosesan Lokal Siap</string>
+    <string name="tool_erase">Hapus Objek</string>
+    <string name="tool_adjust">Sesuaikan</string>
+    <string name="tool_filter">Filter</string>
+    <string name="tool_transform">Transform</string>
+    <string name="erase_instruction">Usap jari pada objek yang ingin dihapus, lalu tekan Hapus Objek.</string>
+    <string name="erase_execute">Hapus Objek</string>
+    <string name="erase_processing">Menghapus objek secara lokal…</string>
+    <string name="clear_mask">Hapus Kuas</string>
+    <string name="brush_size">Ukuran Kuas</string>
+    <string name="auto_saved_prefix">Tersimpan otomatis</string>
+    <string name="recovery_banner_title">Sesi Dipulihkan Otomatis</string>
+    <string name="recovery_banner_desc">Aplikasi sempat tertutup tiba-tiba. Progres edit terakhir Anda berhasil dipulihkan.</string>
+    <string name="recovery_discard">Mulai Baru</string>
+    <string name="settings_title">Pengaturan Studio</string>
+    <string name="share_photo">Bagikan</string>
+    <string name="export_gallery">Simpan ke Galeri</string>
+    <string name="delete_photo">Hapus</string>
+    <string name="compare_hold">Tahan untuk Asli</string>
+    <string name="undo">Urungkan</string>
+    <string name="redo">Ulangi</string>
+    <string name="apply">Terapkan</string>
+    <string name="reset">Reset</string>
+    <string name="done">Selesai</string>
+</resources>

@@ -1,0 +1,6 @@
+{
+  "name": "Dableh-FOTO",
+  "description": "Editor foto sederhana dengan fitur hapus objek mode offline berbasis data lokal, simpan otomatis berkualitas tinggi ke memori internal, dan pemulihan sesi otomatis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
